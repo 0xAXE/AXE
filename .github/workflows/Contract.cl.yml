@@ -36,9 +36,7 @@ jobs:
         run:  scarb  test
 
       - name: Check formatting
-        run: |
-          cd src
-          scarb fmt --check
+        run: scarb fmt --check
 
       # - name: ERC721
       #   run: |
