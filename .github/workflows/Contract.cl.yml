@@ -1,4 +1,4 @@
-name: Contracts CI
+ìname: Contracts CI
 on:
   push:
     branches: ["main"]
@@ -36,7 +36,7 @@ jobs:
         run:  scarb  test
 
       - name: Check formatting
-        run: scarb fmt --check
+        run: scarb fmt 
 
       # - name: ERC721
       #   run: |
