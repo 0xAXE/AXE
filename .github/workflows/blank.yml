@@ -1,14 +1,27 @@
 name: My workflow
+
 on:
   push:
   pull_request:
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: software-mansion/setup-scarb@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Scarb
+        uses: software-mansion/setup-scarb@v1
         with:
           scarb-version: "2.11.4"
-      - run: scarb fmt --check
-      - run: scarb test
+
+
+      - name: Install snforge
+        run: scarb install snforge
+
+      - name: Format check
+        run: scarb fmt --check
+
+      - name: Run tests
+        run: snforge test
