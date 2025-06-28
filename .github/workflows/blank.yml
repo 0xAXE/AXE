@@ -1,27 +1,48 @@
-name: My workflow
-
+name: Contracts CI
 on:
   push:
+    branches: ["main"]
   pull_request:
-
+    branches: ["main"]
 jobs:
-  check:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Scarb
-        uses: software-mansion/setup-scarb@v1
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
         with:
-          scarb-version: "2.11.4"
+          toolchain: stable
+          override: true
 
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Install snforge
-        run: scarb install snforge
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v2
 
-      - name: Format check
-        run: scarb fmt --check
+      - name: Install plugins
+        run: |
+          asdf plugin add scarb
+          asdf install scarb 2.11.4
+          asdf global scarb 2.11.4
+          asdf plugin add starknet-foundry
+          asdf install starknet-foundry 0.44.0
+          asdf global starknet-foundry 0.44.0
+
+      - name: Build contracts
+        run: scarb build
 
       - name: Run tests
-        run: snforge test
+        run:  scarb  test
+
+      - name: Check formatting
+        run: |
+          cd src
+          scarb fmt --check
+
+      # - name: ERC721
+      #   run: |
+      #     cd 
+      #     scarb build
+      #     snforge test
+      #     scarb fmt --check
