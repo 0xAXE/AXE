@@ -118,3 +118,53 @@ fn test_mint_after_ownership_transfer() {
     assert!(erc20.balance_of(USER()) == mint_amount, "User balance should equal mint amount");
     assert!(erc20.total_supply() == mint_amount, "Total supply should equal mint amount");
 } 
+
+#[test]
+fn test_burn_by_owner() {
+    let (xp_token, erc20, _, _) = deploy_xp_token();
+    let mint_amount = 1000_u256;
+    let burn_amount = 400_u256;
+
+    start_cheat_caller_address(xp_token.contract_address, OWNER());
+    xp_token.mint(USER(), mint_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+
+    start_cheat_caller_address(xp_token.contract_address, OWNER());
+    xp_token.burn(USER(), burn_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+
+    assert!(erc20.balance_of(USER()) == mint_amount - burn_amount, "User balance should decrease by burn amount");
+    assert!(erc20.total_supply() == mint_amount - burn_amount, "Total supply should decrease by burn amount");
+}
+
+#[test]
+#[should_panic(expected: ('Caller is not the owner',))]
+fn test_burn_by_non_owner_should_fail() {
+    let (xp_token, _, _, _) = deploy_xp_token();
+    let mint_amount = 1000_u256;
+    let burn_amount = 100_u256;
+
+    start_cheat_caller_address(xp_token.contract_address, OWNER());
+    xp_token.mint(USER(), mint_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+
+    start_cheat_caller_address(xp_token.contract_address, USER());
+    xp_token.burn(USER(), burn_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+}
+
+#[test]
+#[should_panic]
+fn test_burn_more_than_balance_should_fail() {
+    let (xp_token, _, _, _) = deploy_xp_token();
+    let mint_amount = 100_u256;
+    let burn_amount = 200_u256;
+
+    start_cheat_caller_address(xp_token.contract_address, OWNER());
+    xp_token.mint(USER(), mint_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+    
+    start_cheat_caller_address(xp_token.contract_address, OWNER());
+    xp_token.burn(USER(), burn_amount);
+    stop_cheat_caller_address(xp_token.contract_address);
+} 
