@@ -29,8 +29,8 @@ jobs:
           asdf install starknet-foundry 0.44.0
           asdf global starknet-foundry 0.44.0
 
-      - name: Build contracts
-        run: scarb build
+     # - name: Build contracts
+    #    run: scarb build
 
       - name: Run tests
         run:  scarb  test
