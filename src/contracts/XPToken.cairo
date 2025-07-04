@@ -3,6 +3,7 @@ use starknet::ContractAddress;
 #[starknet::interface]
 pub trait IXPToken<TContractState> {
     fn mint(ref self: TContractState, to: ContractAddress, amount: u256);
+    fn burn(ref self: TContractState, from: ContractAddress, amount: u256);
 }
 
 #[starknet::contract]
@@ -58,6 +59,10 @@ pub mod XPToken {
             self.ownable.assert_only_owner();
             
             self.erc20.mint(to, amount);
+        }
+        fn burn(ref self: ContractState, from: ContractAddress, amount: u256) {
+            self.ownable.assert_only_owner();
+            self.erc20.burn(from, amount);
         }
     }
 } 
