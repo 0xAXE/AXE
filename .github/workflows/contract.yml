@@ -1,4 +1,4 @@
-ìname: Contracts CI
+name: Contracts CI
 on:
   push:
     branches: ["main"]
