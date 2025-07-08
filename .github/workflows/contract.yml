@@ -1,4 +1,4 @@
-name: Contracts CI
+name: Build
 on:
   push:
     branches: ["main"]
@@ -29,18 +29,18 @@ jobs:
           asdf install starknet-foundry 0.44.0
           asdf global starknet-foundry 0.44.0
 
-     # - name: Build contracts
-    #    run: scarb build
+      # - name: Build contracts
+      #    run: scarb build
 
       - name: Run tests
-        run:  scarb  test
+        run: scarb  test
 
       - name: Check formatting
-        run: scarb fmt 
+        run: scarb fmt --check
 
       # - name: ERC721
       #   run: |
-      #     cd 
+      #     cd
       #     scarb build
       #     snforge test
       #     scarb fmt --check
