@@ -31,7 +31,7 @@ pub mod XPToken {
         #[substorage(v0)]
         erc20: ERC20Component::Storage,
         #[substorage(v0)]
-        ownable: OwnableComponent::Storage
+        ownable: OwnableComponent::Storage,
     }
 
     #[event]
@@ -40,7 +40,7 @@ pub mod XPToken {
         #[flat]
         ERC20Event: ERC20Component::Event,
         #[flat]
-        OwnableEvent: OwnableComponent::Event
+        OwnableEvent: OwnableComponent::Event,
     }
 
     #[constructor]
@@ -49,7 +49,7 @@ pub mod XPToken {
         let symbol = "XP";
 
         self.erc20.initializer(name, symbol);
-        
+
         self.ownable.initializer(owner);
     }
 
@@ -57,7 +57,7 @@ pub mod XPToken {
     pub impl XPTokenImpl of super::IXPToken<ContractState> {
         fn mint(ref self: ContractState, to: ContractAddress, amount: u256) {
             self.ownable.assert_only_owner();
-            
+
             self.erc20.mint(to, amount);
         }
         fn burn(ref self: ContractState, from: ContractAddress, amount: u256) {
@@ -65,4 +65,4 @@ pub mod XPToken {
             self.erc20.burn(from, amount);
         }
     }
-} 
+}
