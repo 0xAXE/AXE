@@ -1,14 +1,14 @@
-use snforge_std::{
-    declare, ContractClassTrait, DeclareResultTrait, start_cheat_caller_address,
-    stop_cheat_caller_address,
-};
-use starknet::ContractAddress;
 use axe::contracts::XPToken::{IXPTokenDispatcher, IXPTokenDispatcherTrait};
+use openzeppelin_access::ownable::interface::{IOwnableDispatcher, IOwnableDispatcherTrait};
 use openzeppelin_token::erc20::interface::{
     IERC20Dispatcher, IERC20DispatcherTrait, IERC20MetadataDispatcher,
     IERC20MetadataDispatcherTrait,
 };
-use openzeppelin_access::ownable::interface::{IOwnableDispatcher, IOwnableDispatcherTrait};
+use snforge_std::{
+    ContractClassTrait, DeclareResultTrait, declare, start_cheat_caller_address,
+    stop_cheat_caller_address,
+};
+use starknet::ContractAddress;
 
 fn OWNER() -> ContractAddress {
     'OWNER'.try_into().unwrap()
