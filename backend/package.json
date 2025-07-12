@@ -69,5 +69,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "trustedDependencies": [
+    "@nestjs/core",
+    "@swc/core"
+  ]
 }
