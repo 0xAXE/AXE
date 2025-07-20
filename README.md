@@ -39,3 +39,39 @@ No more managing multiple wallets. No more errors. Just one ID — and full cros
 ### 🔹 One-liner:
 
 > **AxeGate lets you send and receive anything from any chain — using just one ID.**
+
+---
+
+```bash
+                       +---------------------+
+                       |       User          |
+                       +---------------------+
+                                 |
+                                 v
+                    +-------------------------+
+                    |  AxeGate Universal ID   |
+                    |  (Cross-Chain Identity) |
+                    +-------------------------+
+                                 |
+          -------------------------------------------------
+          |                       |                       |
+          v                       v                       v
+ +----------------+      +----------------+      +----------------+
+ |   Ethereum     |      |    Solana      |      |    Starknet    |
+ |   (ETH, etc.)  |      |   (USDC, etc.) |      |   (USDT, etc.) |
+ +----------------+      +----------------+      +----------------+
+
+                                 ^
+                                 |
+                       Intelligent Routing Engine
+                                 |
+          -------------------------------------------------
+          |                       |                       |
+          v                       v                       v
+ +----------------+      +----------------+      +----------------+
+ | Identity Map   |      | Crypto Proofs  |      | Developer SDK |
+ | & Registry     |      | & Security     |      | & APIs         |
+ +----------------+      +----------------+      +----------------+
+
+
+```
