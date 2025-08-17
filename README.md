@@ -1,12 +1,12 @@
 [![Build](https://github.com/0xAXE/axe/actions/workflows/contract.yml/badge.svg)](https://github.com/0xAXE/axe/actions/workflows/contract.yml) [![Nest](https://github.com/0xAXE/axe/actions/workflows/backend.yml/badge.svg)](https://github.com/0xAXE/axe/actions/workflows/backend.yml) ![Next](https://deploy-badge.vercel.app/?url=https://axe-psi.vercel.app/&name=Next) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<h1 align="center"> AxeGate </h1>
+<h1 align="center"> AXE </h1>
 
 ### 🔹 Description:
 
 ---
 
-**AxeGate** is a universal identity layer for Web3 that replaces fragmented wallet addresses with a single, powerful **User ID** — enabling seamless **sending and receiving of assets** across multiple blockchains.
+**Axe** is a universal identity layer for Web3 that replaces fragmented wallet addresses with a single, powerful **User ID** — enabling seamless **sending and receiving of assets** across multiple blockchains.
 
 Whether you're receiving ETH from Ethereum, USDC from Solana, or USDT on Polygon — just share your AxeGate ID. The system intelligently routes each asset to the correct destination wallet. And when you want to send assets, AxeGate lets you simply input the recipient’s ID or Address — and it handles the cross-chain delivery under the hood.
 
@@ -17,7 +17,7 @@ No more managing multiple wallets. No more errors. Just one ID — and full cros
 ### 🔹 Key Features:
 
 - 🆔 **One Universal ID**
-  Forget dozens of addresses. AxeGate assigns one unique ID that works across all chains.
+  Forget dozens of addresses. Axe assigns one unique ID or genrate yourself one that works across all chains.
 
 - 🔁 **Bi-Directional Routing**
   Send and receive tokens and other digital assets across chains using only a User ID.
@@ -32,46 +32,7 @@ No more managing multiple wallets. No more errors. Just one ID — and full cros
   Simple integration into wallets, dApps, and bridges.
 
 - 🌐 **Multi-Chain Native**
-  Built for Ethereum, Solana, Sellar, Aptos, Starknet, and more.
+  Building for Ethereum, Starknet , Sellar, Aptos , Solana , and more.
 
 ---
 
-### 🔹 One-liner:
-
-> **AxeGate lets you send and receive anything from any chain — using just one ID.**
-
----
-
-```bash
-                       +---------------------+
-                       |       User          |
-                       +---------------------+
-                                 |
-                                 v
-                    +-------------------------+
-                    |  AxeGate Universal ID   |
-                    |  (Cross-Chain Identity) |
-                    +-------------------------+
-                                 |
-          -------------------------------------------------
-          |                       |                       |
-          v                       v                       v
- +----------------+      +----------------+      +----------------+
- |   Ethereum     |      |    Solana      |      |    Starknet    |
- |   (ETH, etc.)  |      |   (USDC, etc.) |      |   (USDT, etc.) |
- +----------------+      +----------------+      +----------------+
-
-                                 ^
-                                 |
-                       Intelligent Routing Engine
-                                 |
-          -------------------------------------------------
-          |                       |                       |
-          v                       v                       v
- +----------------+      +----------------+      +----------------+
- | Identity Map   |      | Crypto Proofs  |      | Developer SDK |
- | & Registry     |      | & Security     |      | & APIs         |
- +----------------+      +----------------+      +----------------+
-
-
-```
