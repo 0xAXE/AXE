@@ -1,4 +1,6 @@
-[![Build](https://github.com/0xAXE/axe/actions/workflows/contract.yml/badge.svg)](https://github.com/0xAXE/axe/actions/workflows/contract.yml) [![Nest](https://github.com/0xAXE/axe/actions/workflows/backend.yml/badge.svg)](https://github.com/0xAXE/axe/actions/workflows/backend.yml) ![Next](https://deploy-badge.vercel.app/?url=https://axe-psi.vercel.app/&name=Next) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build](https://github.com/0xAXE/axe/actions/workflows/contract.yml/badge.svg)](https://github.com/0xAXE/axe/actions/workflows/contract.yml) 
+[![Issues](https://img.shields.io/github/issues/public-api-lists/public-api-lists?style=flat-square)](https://github.com/public-api-lists/public-api-lists/issues/new)
+![Next](https://deploy-badge.vercel.app/?url=https://axe-psi.vercel.app/&name=Next) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h1 align="center"> AXE </h1>
 
